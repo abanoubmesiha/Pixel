@@ -27,3 +27,23 @@ window.onload=function(){
     }
     makeGrid();
   }
+  let down = false; 
+
+  pixelCanvas.addEventListener('mousedown', function() {
+    down = true; // if mouse down
+    pixelCanvas.addEventListener('mouseup', function() {
+      down = false; // if mouse up
+    });
+    pixelCanvas.addEventListener('mouseleave', function() {
+      down = false; // if mouse leave grid
+    });
+  
+    pixelCanvas.addEventListener('mouseover', function(e) { 
+      const color = document.querySelector("#colorPicker").value;
+      if (down) { // if mouse down and moves inside grid cells
+        if (e.target.tagName === 'TD') {
+          e.target.style.backgroundColor = color;
+        }
+      }
+    })
+  });
