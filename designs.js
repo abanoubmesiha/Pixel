@@ -1,7 +1,8 @@
+const color = document.querySelector("#colorPicker").value;
 window.onload=function(){
   
   document.getElementById("submit").addEventListener("click", makeGrid);
-  
+
   function makeGrid() {
 // deleting the table before submiting a new one
     const pixelCanvas = document.getElementById("pixelCanvas");
@@ -20,7 +21,6 @@ window.onload=function(){
                 Row.appendChild(Cell);
                 // function of coloring the cells
                 Cell.addEventListener('mousedown', function() {
-                  const color = document.querySelector("#colorPicker").value;
                   this.style.backgroundColor = color;
                 })
       }}
@@ -39,7 +39,6 @@ window.onload=function(){
     });
   
     pixelCanvas.addEventListener('mouseover', function(e) { 
-      const color = document.querySelector("#colorPicker").value;
       if (down) { // if mouse down and moves inside grid cells
         if (e.target.tagName === 'TD') {
           e.target.style.backgroundColor = color;
