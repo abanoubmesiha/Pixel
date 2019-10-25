@@ -47,3 +47,6 @@ window.onload=function(){
       }
     })
   });
+  pixelCanvas.addEventListener('dblclick', e => { //remove color at douple click
+    e.target.style.backgroundColor = null;
+  });
